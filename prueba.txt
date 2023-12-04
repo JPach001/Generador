@@ -1,0 +1,6 @@
+Programa -> Librerias Main \;
+Librerias -> #include <Identificador.h> \| \(Cadena include Main\) \? include  \;
+Main -> void main()
+        {
+
+        } \;
