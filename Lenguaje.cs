@@ -128,8 +128,9 @@ namespace Generador
                     generado.WriteLine("            {");
                     generado.WriteLine("                " + simbolo + "();");
                     generado.WriteLine("            }");
-                    if(getClasificacion() != Tipos.PDer){
-                        throw new Error("No se puede esperar otra condicion debido a que ya hay un else", log, linea, columna);
+                    if(getClasificacion() != Tipos.PDer)
+                    {
+                        throw new Error("Hay un else! no puede seguir otra condicion", log, linea, columna);
                     }
                 }
                 if(getClasificacion() != Tipos.PDer)
@@ -182,7 +183,7 @@ namespace Generador
                 }
                 else
                 {
-                    //throw new Error("de sintaxis, debe <" + getContenido() + "> debe ser un ST o Palabra Reservada", log, linea, columna);
+                    throw new Error("de sintaxis, <" + getContenido() + "> debe haber un Simbolo Terminal o Palabra Reservada", log, linea, columna);
                 }
                 if (getClasificacion() != Tipos.PDer)
                 {
@@ -212,7 +213,7 @@ namespace Generador
                     generado.WriteLine("                match(\"" + simbolo + "\");");
                 }
                 else {
-                    throw new Error("No se puede iniciar un Epsilon con un SNT", log, linea, columna);
+                    throw new Error("Imposible iniciar un Epsilon con un Simbolo No Terminal", log, linea, columna);
                 }
                 generado.WriteLine("            }");
                 if (getClasificacion() != Tipos.PDer)
