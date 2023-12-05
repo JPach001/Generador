@@ -18,6 +18,7 @@ namespace Generador
         }
         public Lenguaje(string nombre) : base(nombre)
         {
+            
         }
 
         public void generaLenguaje()
@@ -170,7 +171,7 @@ namespace Generador
                 if (esPalabraReservada(simbolo))
                 {
                     match(Tipos.SNT);
-                    generado.WriteLine("            if (getClasificacion() == Tipos."+simbolo+")");
+                    generado.WriteLine("            if (getClasificacion() == Tipos." + simbolo + ")");
                     generado.WriteLine("            {");
                     generado.WriteLine("                match(Tipos." + simbolo + ");");
                 }
@@ -212,7 +213,8 @@ namespace Generador
                     generado.WriteLine("            {");
                     generado.WriteLine("                match(\"" + simbolo + "\");");
                 }
-                else {
+                else 
+                {
                     throw new Error("Imposible iniciar un Epsilon con un Simbolo No Terminal", log, linea, columna);
                 }
                 generado.WriteLine("            }");
