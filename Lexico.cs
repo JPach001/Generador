@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
+using System.Reflection.PortableExecutable;
+using System.Runtime.CompilerServices;
 
 namespace Generador
 {
@@ -35,9 +37,12 @@ namespace Generador
         protected int caracter;
         public Lexico()
         {
+            DateTime myValue = DateTime.Now;
             linea = columna = caracter = 1;
             log      = new StreamWriter("..//generado//Lenguaje.log");
             generado = new StreamWriter("..//generado//Lenguaje.cs");
+            log.WriteLine("Autor: Julián Andrés Pacheco García");
+            log.WriteLine(myValue.ToShortDateString() + " " + myValue.ToLongTimeString());
             log.AutoFlush = true;
             generado.AutoFlush = true;
             if (File.Exists("prueba.txt"))
@@ -51,9 +56,12 @@ namespace Generador
         }
         public Lexico(string nombre)
         {
+            DateTime myValue = DateTime.Now;
             linea = columna = caracter = 1;
             log      = new StreamWriter("..//generado//Lenguaje.log");
             generado = new StreamWriter("..//generado//Lenguaje.cs");
+            log.WriteLine("Autor: Julián Andrés Pacheco García");
+            log.WriteLine(myValue.ToShortDateString() + " " + myValue.ToLongTimeString());
             log.AutoFlush = true;
             generado.AutoFlush = true;
             if (Path.GetExtension(nombre) != ".gram")
